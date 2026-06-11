@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zoe · 14 is my era</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zoe.cabrera.pe/">
+<meta property="og:title" content="Zoe cumple 14 🎉 ¡Estás invitada!">
+<meta property="og:description" content="Sábado 13 de junio · 6:30 pm · Magdalena del Mar. Toca para ver la invitación y confirmar tu asistencia ✨">
+<meta property="og:image" content="https://zoe.cabrera.pe/zoe.jpg">
+<meta property="og:image:alt" content="Zoe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#c07f8e">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,300;0,400;0,600;0,700;1,400;1,500&family=Caveat:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Special+Elite&display=swap" rel="stylesheet">
@@ -369,7 +377,7 @@ body{padding:22px 10px 50px;display:flex;justify-content:center;align-items:flex
    Si los dejas vacíos, usa WhatsApp automáticamente.
 ===================================================================== */
 const CONFIG = {
-  fotoURL: "",
+  fotoURL: "zoe.jpg",
   spotifyPlaylist: "https://open.spotify.com/playlist/1KdPxlUwzOb0fEesCIJkDJ?si=e3e4d06b25434206&pt=345d8ab682ea80af0dc5b74108c04013",
   whatsapp: "51999999999",
   gForm: {
@@ -387,7 +395,7 @@ const EVENT_DATE = new Date('2026-06-13T18:30:00-05:00');
 
 /* ---- foto ---- */
 const img=document.getElementById('zoePhoto'),hint=document.getElementById('uploadHint'),plArt=document.getElementById('plArt');
-function setPhoto(src){img.src=src;img.style.display='block';hint.style.display='none';plArt.innerHTML='<img src="'+src+'" alt="">';}
+function setPhoto(src){img.onerror=()=>{img.style.display='none';hint.style.display='flex';};img.src=src;img.style.display='block';hint.style.display='none';plArt.innerHTML='<img src="'+src+'" alt="">';}
 function b2d(b){let s='';const u=new Uint8Array(b);for(let i=0;i<u.length;i++)s+=String.fromCharCode(u[i]);return 'data:image/jpeg;base64,'+btoa(s);}
 async function autoLoad(){
   if(CONFIG.fotoURL){setPhoto(CONFIG.fotoURL);return;}
